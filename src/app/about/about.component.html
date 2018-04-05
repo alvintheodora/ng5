@@ -1,9 +1,13 @@
 <p>
-  about works! <br> <a href="" (click)="sendMeHome()"><b>Take me to Home</b></a>
+ <a href="" (click)="sendMeHome()"><b>Take me to Home</b></a>
 </p>
 
-<ul>
+<div class="col">
+  <p>Your bucket list is:</p>
+  <ol>
   <li *ngFor="let goal of goals">
     {{ goal }}
   </li>
-</ul>
+</ol>
+</div>
+

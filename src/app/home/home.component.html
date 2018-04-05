@@ -12,7 +12,7 @@
 
     <form>
       <input type="text" class="txt" name="item" placeholder="Life goal.." [(ngModel)]="goalText">
-      <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+      <button type="submit" class="btn" (click)="addItem()">Add # {{ goals.length+1 }} {{ goalText }}</button>
     </form>
   </div>
   <div class="col" [@goals]="goals.length">
