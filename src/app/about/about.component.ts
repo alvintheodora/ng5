@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
+
 import * as Highcharts from 'highcharts';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-about',
@@ -11,8 +13,9 @@ import * as Highcharts from 'highcharts';
 export class AboutComponent implements OnInit {
 
   goals: any;
+  public modalRef: BsModalRef; // {1}
 
-  constructor(private route: ActivatedRoute, private router: Router, private _data: DataService) {
+  constructor(private route: ActivatedRoute, private router: Router, private _data: DataService, private modalService: BsModalService) {
     this.route.params.subscribe(res => console.log(res.id));
    }
 
@@ -45,5 +48,9 @@ export class AboutComponent implements OnInit {
 
   sendMeHome(){
     this.router.navigate(['']);
+  }
+
+  public openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template); // {3}
   }
 }
