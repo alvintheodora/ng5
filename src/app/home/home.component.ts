@@ -3,6 +3,7 @@ import { trigger,style,transition,animate,keyframes,query,stagger } from '@angul
 import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit {
     this.itemCount = this.goals.length;
     this._data.changeGoal(this.goals);
     this.http.get('https://jsonplaceholder.typicode.com/posts/1').subscribe(res => console.log(res));
+    
   }
 
   addItem(){

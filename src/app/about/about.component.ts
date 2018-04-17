@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-about',
@@ -17,6 +18,29 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this._data.goal.subscribe(res => this.goals = res);
+    Highcharts.chart('container', {
+      chart: {
+          type: 'bar'
+      },
+      title: {
+          text: 'Fruit Consumption'
+      },
+      xAxis: {
+          categories: ['Apples', 'Bananas', 'Oranges']
+      },
+      yAxis: {
+          title: {
+              text: 'Fruit eaten'
+          }
+      },
+      series: [{
+          name: 'Jane',
+          data: [1, 19, 4]
+      }, {
+          name: 'John',
+          data: [5, 7, 3]
+      }]
+  });
   }
 
   sendMeHome(){
